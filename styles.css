@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #1a001a; /* Deep, dark purple background */
+  color: #e0e0e0; /* Light text for contrast */
+}
+
+header, footer {
+  background: #330033; /* Darker purple tone */
+  color: #e0e0e0;
+  padding: 1em;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 1em;
+}
+
+nav ul li a {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+
+main {
+  padding: 2em;
+}
+
+/* Hero Section (index.html) */
+.hero {
+  background: url('images/scenic-bg.jpg') no-repeat center center/cover;
+  background-blend-mode: multiply;
+  background-color: rgba(51, 0, 51, 0.7); /* Purple overlay */
+  color: #e0e0e0;
+  padding: 4em 2em;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.hero .tagline {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 0.5em;
+}
+
+/* Gallery Grid (gallery.html) */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+}
+
+.gallery-item {
+  width: 100%;
+  cursor: pointer;
+  border: 2px solid #e0e0e0;
+  border-radius: 4px;
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  padding-top: 5%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(26, 0, 26, 0.95); /* Nearly black with a hint of purple */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #e0e0e0;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Contact Form (contact.html) */
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+form input, form textarea {
+  padding: 0.5em;
+  border: 1px solid #330033;
+  border-radius: 3px;
+  background-color: #1a001a;
+  color: #e0e0e0;
+}
+
+form button {
+  margin-top: 1em;
+  padding: 0.7em;
+  background: #330033;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #440044;
+}
