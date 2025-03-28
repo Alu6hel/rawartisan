@@ -1,74 +1,113 @@
-/* General Styles */
+/* === General Styles === */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #1a001a; /* Deep, dark purple background */
-  color: #e0e0e0; /* Light text for contrast */
+  font-family: 'Poppins', sans-serif;
+  background: #110011; /* Deep black-purple background */
+  color: #e0e0e0; /* Soft contrast for readability */
 }
 
+/* === Header & Footer === */
 header, footer {
-  background: #330033; /* Darker purple tone */
+  background: linear-gradient(135deg, #330033, #550055);
   color: #e0e0e0;
-  padding: 1em;
+  padding: 1.5em;
   text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 nav ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
 nav ul li {
-  display: inline;
-  margin: 0 1em;
+  display: inline-block;
+  margin: 0 1.5em;
 }
 
 nav ul li a {
-  color: #e0e0e0;
+  color: #ffddff;
   text-decoration: none;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
 }
 
-main {
-  padding: 2em;
+nav ul li a:hover {
+  color: #ff44ff;
 }
 
-/* Hero Section (index.html) */
+/* === Hero Section (Home Page) === */
 .hero {
-  background: url('images/scenic-bg.jpg') no-repeat center center/cover;
-  background-blend-mode: multiply;
-  background-color: rgba(51, 0, 51, 0.7); /* Purple overlay */
-  color: #e0e0e0;
-  padding: 4em 2em;
+  background: url('images/IMG-20250326-WA0013.jpg') no-repeat center center/cover;
+  background-blend-mode: overlay;
+  background-color: rgba(26, 0, 26, 0.6);
+  color: #ffffff;
+  padding: 5em 2em;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px rgba(255, 0, 255, 0.3);
+}
+
+.hero h1 {
+  font-size: 3em;
+  font-weight: bold;
+  text-shadow: 3px 3px 10px rgba(255, 0, 255, 0.7);
 }
 
 .hero .tagline {
-  font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  font-style: italic;
   margin-top: 0.5em;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
 }
 
-/* Gallery Grid (gallery.html) */
+/* === Call-to-Action Button === */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  margin-top: 1em;
+  background: linear-gradient(45deg, #660066, #990099);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #990099, #cc00cc);
+  transform: scale(1.1);
+}
+
+/* === Gallery Grid (Gallery Page) === */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5em;
+  padding: 2em;
 }
 
 .gallery-item {
   width: 100%;
   cursor: pointer;
-  border: 2px solid #e0e0e0;
-  border-radius: 4px;
-  transition: transform 0.3s;
+  border: 4px solid #990099;
+  border-radius: 8px;
+  box-shadow: 0px 5px 20px rgba(255, 0, 255, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .gallery-item:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0px 10px 30px rgba(255, 0, 255, 0.5);
 }
 
-/* Modal Styles */
+/* === Modal Styles (Image Enlargement) === */
 .modal {
   display: none;
   position: fixed;
@@ -78,57 +117,64 @@ main {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(26, 0, 26, 0.95); /* Nearly black with a hint of purple */
+  background-color: rgba(17, 0, 17, 0.95);
 }
 
 .modal-content {
   margin: auto;
   display: block;
   max-width: 90%;
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px rgba(255, 0, 255, 0.5);
 }
 
 .close {
   position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #e0e0e0;
-  font-size: 40px;
+  top: 15px;
+  right: 25px;
+  color: #ff99ff;
+  font-size: 45px;
   font-weight: bold;
   cursor: pointer;
 }
 
-/* Contact Form (contact.html) */
+.close:hover {
+  color: #ff44ff;
+}
+
+/* === Contact Form === */
 form {
   max-width: 500px;
   margin: auto;
   display: flex;
   flex-direction: column;
+  background: rgba(26, 0, 26, 0.8);
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0px 5px 20px rgba(255, 0, 255, 0.3);
 }
 
 form label {
   margin-top: 1em;
   margin-bottom: 0.5em;
+  font-weight: bold;
 }
 
 form input, form textarea {
-  padding: 0.5em;
-  border: 1px solid #330033;
-  border-radius: 3px;
+  padding: 10px;
+  border: 2px solid #550055;
+  border-radius: 5px;
   background-color: #1a001a;
   color: #e0e0e0;
 }
 
 form button {
   margin-top: 1em;
-  padding: 0.7em;
-  background: #330033;
-  color: #e0e0e0;
+  padding: 10px;
+  background: linear-gradient(45deg, #660066, #990099);
+  color: white;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
-}
+  font-size: 1.1em;
 
-form button:hover {
-  background: #440044;
-}
