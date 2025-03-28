@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery - Raw Artisan</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Raw Artisan</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Gallery</h1>
+    <div class="gallery-grid">
+      <img src="images/shot1.jpg" alt="Scenic Photo 1 by Ian Barrett" class="gallery-item">
+      <img src="images/shot2.jpg" alt="Scenic Photo 2 by Ian Barrett" class="gallery-item">
+      <img src="images/shot3.jpg" alt="Scenic Photo 3 by Ian Barrett" class="gallery-item">
+      <!-- Add more images as needed -->
+    </div>
+    <!-- Modal for enlarged image view -->
+    <div id="modal" class="modal">
+      <span id="close" class="close">&times;</span>
+      <img id="modal-img" class="modal-content" alt="Enlarged Photo">
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Raw Artisan. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
