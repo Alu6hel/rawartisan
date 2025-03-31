@@ -14,10 +14,18 @@
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
+        <!-- Logo at top right -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/IMG-20250326-WA0016.jpg" alt="Raw Artizan Logo">
+            </a>
+        </div>
     </nav>
 
-    <main>
+    <main class="contact-container">
         <h1>Contact Us</h1>
+        <p>Have a question or inquiry? Fill out the form below and we'll get back to you.</p>
+
         <form action="submit_form.php" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -26,9 +34,9 @@
             <input type="email" id="email" name="email" required>
 
             <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" rows="5" required></textarea>
 
-            <button type="submit">Send</button>
+            <button type="submit">Send Message</button>
         </form>
     </main>
 
