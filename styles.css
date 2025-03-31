@@ -1,104 +1,58 @@
-/* General Styling */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #121212;  /* Dark background for less strain on eyes */
-    color: #e0e0e0;  /* Slightly lighter text for better contrast */
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
 }
 
-/* Headings */
-.hero-title {
-    font-family: 'Playfair Display', serif;
-    color: #f3f3f3; /* Off-white for better readability */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adds subtle depth */
-    font-weight: 700;
-}
-
-/* Navigation */
 nav {
-    background-color: #4c1d95;  /* Deep Purple */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);  /* Soft shadow for depth */
-    padding: 15px 30px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    background-color: #4c1d95;
+    padding: 10px;
 }
 
-/* Links */
-a {
-    color: #e0e0e0;
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
     text-decoration: none;
-    transition: color 0.3s ease-in-out, transform 0.2s ease;
+    font-weight: bold;
 }
 
-a:hover {
-    color: #bb86fc; /* Softer purple hover */
-    transform: scale(1.05); /* Slight zoom effect on hover */
-}
-
-/* Buttons */
-button {
-    background-color: #2b2b2b; /* Dark button background */
-    color: #f3f3f3; /* Light text */
-    border: 2px solid #bb86fc; /* Purple border */
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow */
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-button:hover {
-    background-color: #6b21a8;  /* Elegant Purple */
-    border-color: #9b4dca; /* Slightly lighter purple on hover */
-    transform: scale(1.1); /* More pronounced hover zoom */
-}
-
-/* Artwork Cards */
-.art-card {
-    background-color: #3b0764;  /* Dark Purple */
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.art-card:hover {
-    transform: translateY(-8px); /* Deeper hover effect */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
-}
-
-/* Footer */
-footer {
-    background-color: #4c1d95;  /* Deep Purple */
-    padding: 40px 20px;
-    color: #f3f3f3;
+.hero {
+    background: url('images/background.jpg') no-repeat center center/cover;
     text-align: center;
-    margin-top: 50px;
+    padding: 80px 20px;
 }
 
-footer a {
-    color: #e0e0e0;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-weight: 500;
+.content-section {
+    padding: 20px;
+    text-align: center;
 }
 
-footer a:hover {
-    color: #bb86fc;  /* Softer purple hover */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
 
-    .art-card {
-        margin-bottom: 20px;
-    }
+.modal-content {
+    width: 80%;
+    max-width: 600px;
+    margin: 10% auto;
 }
