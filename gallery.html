@@ -5,32 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Raw Artizan</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 
+    <!-- Navigation -->
     <nav>
+        <div class="logo-container">
+            <img src="images/IMG-20250326-WA0016.jpg" alt="Raw Artizan Logo" class="logo">
+        </div>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <!-- Logo at top right -->
-        <div class="logo">
-            <a href="index.html">
-                <img src="images/IMG-20250326-WA0016.jpg" alt="Raw Artizan Logo">
-            </a>
-        </div>
     </nav>
 
+    <!-- Gallery Page -->
     <main>
         <h1>Gallery</h1>
-        <p class="gallery-description">Explore the captivating works of Raw Artizan, covering Celebrity Portraits and Photo Journalism.</p>
 
+        <!-- Gallery Buttons -->
         <div class="gallery-buttons">
-            <button onclick="loadGallery('celebrity-photo')">Celebrity Photo</button>
             <button onclick="loadGallery('photo-journalism')">Photo Journalism</button>
+            <button onclick="loadGallery('celebrity-photo')">Celebrity Photo</button>
         </div>
 
+        <!-- Image Gallery -->
         <div id="gallery-content" class="gallery-grid"></div>
     </main>
 
@@ -40,10 +41,10 @@
         <img id="modal-img" class="modal-content">
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Raw Artizan. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
