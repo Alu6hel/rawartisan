@@ -3,90 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raw Artisan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Raw Artizan - Home</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="bg-black text-gray-300">
+<body>
 
     <!-- Navigation -->
-    <nav class="bg-purple-900 shadow-md py-4 px-6 flex justify-between items-center text-gray-200">
-        <div class="text-2xl font-bold text-white">RAW ARTISAN</div>
-        <div class="hidden md:flex space-x-6">
-            <a href="#" class="hover:text-purple-300">Artworks</a>
-            <a href="#" class="hover:text-purple-300">Artists</a>
-            <a href="#" class="hover:text-purple-300">About</a>
-            <a href="#" class="hover:text-purple-300">Contact</a>
-        </div>
-        <div class="flex items-center space-x-4">
-            <a href="#"><i class="fas fa-search hover:text-purple-400"></i></a>
-            <a href="#"><i class="fas fa-user hover:text-purple-400"></i></a>
-            <a href="#"><i class="fas fa-shopping-cart hover:text-purple-400"></i></a>
-        </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative h-96 bg-purple-800 flex items-center justify-center text-center text-white">
-        <div>
-            <h1 class="text-5xl font-bold mb-4">Discover Original Art</h1>
-            <p class="text-lg mb-6">Curated selection of contemporary masterpieces</p>
-            <button class="bg-black text-white px-6 py-2 rounded hover:bg-purple-700 transition">Browse Collection</button>
-        </div>
+    <!-- Hero Section with Background -->
+    <header class="hero">
+        <h1>Raw Artizan</h1>
+        <p>Modern Artist & Photographer</p>
+    </header>
+
+    <!-- Artist Statement -->
+    <section class="content-section">
+        <h2>Artist Statement</h2>
+        <p>Covers portraits, photojournalism, and abstract photos. His photojournalism looks at modern political standpoints in history...</p>
     </section>
 
-    <!-- Featured Artworks -->
-    <section class="py-12 px-6 max-w-7xl mx-auto">
-        <h2 class="text-2xl font-bold text-white mb-8">Featured Artworks</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <!-- Artwork cards -->
-            <div class="bg-purple-900 rounded shadow-md overflow-hidden">
-                <img src="images/art1.jpg" alt="Artwork 1" class="h-64 w-full object-cover">
-                <div class="p-4">
-                    <h3 class="font-medium text-white">Elegant Artwork</h3>
-                    <p class="text-gray-400 text-sm">Artist Name</p>
-                    <p class="font-bold mt-2 text-purple-300">$1,200</p>
-                </div>
-            </div>
-            <!-- Repeat for other artworks -->
-        </div>
+    <!-- Biography -->
+    <section class="content-section">
+        <h2>Biography</h2>
+        <p>Raw Artizan is a modern artist and photographer based in Central London...</p>
+    </section>
+
+    <!-- Abstract -->
+    <section class="content-section">
+        <h2>Abstract</h2>
+        <p>Raw Artizan looks at natural and organic shapes, patterns, and colors...</p>
+    </section>
+
+    <!-- Inspirations -->
+    <section class="content-section">
+        <h2>Inspiration & Influences</h2>
+        <p>Growing up in urban West London in the 90s, Raw Artizan was inspired by his community...</p>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-purple-900 py-8 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-gray-300">
-            <div>
-                <h3 class="font-bold text-white mb-4">RAW ARTISAN</h3>
-                <p class="text-sm">Discover and collect exceptional art from independent artists.</p>
-            </div>
-            <div>
-                <h4 class="font-medium text-white mb-4">Explore</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-purple-300">Artworks</a></li>
-                    <li><a href="#" class="hover:text-purple-300">Artists</a></li>
-                    <li><a href="#" class="hover:text-purple-300">Collections</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-medium text-white mb-4">About</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-purple-300">Our Story</a></li>
-                    <li><a href="#" class="hover:text-purple-300">Blog</a></li>
-                    <li><a href="#" class="hover:text-purple-300">Careers</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-medium text-white mb-4">Connect</h4>
-                <div class="flex space-x-4">
-                    <a href="#"><i class="fab fa-instagram hover:text-purple-400"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f hover:text-purple-400"></i></a>
-                    <a href="#"><i class="fab fa-twitter hover:text-purple-400"></i></a>
-                    <a href="#"><i class="fab fa-pinterest hover:text-purple-400"></i></a>
-                </div>
-            </div>
-        </div>
+    <footer>
+        <p>&copy; 2025 Raw Artizan. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
