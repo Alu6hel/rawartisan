@@ -22,38 +22,19 @@
     <!-- General Images Section -->
     <section>
       <h2>General Photography</h2>
-      <div class="gallery-grid">
-        <img src="images/IMG-20250326-WA0005.jpg" alt="General Image 1" class="gallery-item">
-        <img src="images/IMG-20250326-WA0009.jpg" alt="General Image 2" class="gallery-item">
-        <img src="images/IMG-20250326-WA0011.jpg" alt="General Image 3" class="gallery-item">
-        <img src="images/IMG-20250326-WA0012.jpg" alt="General Image 4" class="gallery-item">
-        <img src="images/IMG-20250326-WA0014.jpg" alt="General Image 5" class="gallery-item">
-        <img src="images/IMG-20250326-WA0015.jpg" alt="General Image 6" class="gallery-item">
-        <img src="images/IMG-20250326-WA0017.jpg" alt="General Image 7" class="gallery-item">
-        <img src="images/IMG-20250326-WA0018.jpg" alt="General Image 8" class="gallery-item">
-      </div>
+      <div id="general-gallery" class="gallery-grid"></div>
     </section>
 
     <!-- Celebrity Portrait Section -->
     <section>
       <h2>Celebrity Portrait</h2>
-      <div class="gallery-grid">
-        <img src="images/celebrity-portrait/IMG-20250326-WA0004.jpg" alt="Celebrity Portrait 1" class="gallery-item">
-        <img src="images/celebrity-portrait/IMG-20250326-WA0007.jpg" alt="Celebrity Portrait 2" class="gallery-item">
-        <img src="images/celebrity-portrait/IMG-20250326-WA0008.jpg" alt="Celebrity Portrait 3" class="gallery-item">
-        <img src="images/celebrity-portrait/IMG-20250326-WA0010.jpg" alt="Celebrity Portrait 4" class="gallery-item">
-      </div>
+      <div id="celebrity-gallery" class="gallery-grid"></div>
     </section>
 
     <!-- Photo Journalism Section -->
     <section>
       <h2>Photo Journalism</h2>
-      <div class="gallery-grid">
-        <img src="images/photo%20journalism/IMG-20250326-WA0002.jpg" alt="Photo Journalism 1" class="gallery-item">
-        <img src="images/photo%20journalism/IMG-20250326-WA0003.jpg" alt="Photo Journalism 2" class="gallery-item">
-        <img src="images/photo%20journalism/IMG-20250326-WA0004.jpg" alt="Photo Journalism 3" class="gallery-item">
-        <img src="images/photo%20journalism/IMG-20250326-WA0005.jpg" alt="Photo Journalism 4" class="gallery-item">
-      </div>
+      <div id="journalism-gallery" class="gallery-grid"></div>
     </section>
 
     <!-- Modal for Enlarged Images -->
@@ -69,6 +50,56 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Modal Functionality
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modal-img');
+      const closeModal = document.getElementById('close');
+
+      // Function to load gallery images dynamically
+      function loadGalleryImages(folder, galleryId) {
+        fetch(`images/${folder}/`)
+          .then(response => response.text())
+          .then(data => {
+            let parser = new DOMParser();
+            let doc = parser.parseFromString(data, "text/html");
+            let imageLinks = doc.querySelectorAll("a");
+
+            const galleryGrid = document.getElementById(galleryId);
+
+            imageLinks.forEach(link => {
+              let imageName = link.getAttribute("href");
+              if (imageName.match(/\.(jpg|jpeg|png|gif)$/)) {
+                let img = document.createElement("img");
+                img.src = `images/${folder}/${imageName}`;
+                img.alt = `${folder} - ${imageName}`;
+                img.classList.add("gallery-item");
+
+                galleryGrid.appendChild(img);
+
+                // Add event listener for modal
+                img.addEventListener('click', function () {
+                  modal.style.display = 'block';
+                  modalImg.src = this.src;
+                  modalImg.alt = this.alt;
+                });
+              }
+            });
+          })
+          .catch(error => console.error("Error loading images:", error));
+      }
+
+      // Load images for each section
+      loadGalleryImages('general', 'general-gallery');
+      loadGalleryImages('celebrity-portrait', 'celebrity-gallery');
+      loadGalleryImages('photo%20journalism', 'journalism-gallery');
+
+      // Close modal when clicking the close button
+      closeModal.addEventListener('click', function () {
+        modal.style.display = 'none';
+      });
+    });
+  </script>
 </body>
 </html>
-
