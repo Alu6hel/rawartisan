@@ -27,8 +27,8 @@
 
         <!-- Gallery Buttons -->
         <div class="gallery-buttons">
-            <button onclick="loadGallery('photo-journalism')">Photo Journalism</button>
-            <button onclick="loadGallery('celebrity-photo')">Celebrity Photo</button>
+            <button id="photo-journalism-button">Photo Journalism</button>
+            <button id="celebrity-button">Celebrity Photo</button>
         </div>
 
         <!-- Image Gallery -->
@@ -45,6 +45,76 @@
     <footer>
         <p>&copy; 2025 Raw Artizan. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Elements
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modal-img');
+            const closeModal = document.getElementById('close');
+            const galleryContent = document.getElementById('gallery-content');
+
+            // Image Data
+            const galleryImages = {
+                "photo-journalism": [
+                    "IMG-20250330-WA0008.jpg", "IMG-20250330-WA0006.jpg", "IMG-20250330-WA0004.jpg", 
+                    "IMG-20250330-WA0003.jpg", "IMG-20250330-WA0002.jpg", "IMG-20250330-WA0001.jpg", 
+                    "IMG-20250330-WA0000.jpg", "IMG-20250330-WA0015.jpg", "IMG-20250326-WA0012.jpg", 
+                    "IMG-20250330-WA0014.jpg", "IMG-20250326-WA0011.jpg", "IMG-20250330-WA0013.jpg", 
+                    "IMG-20250330-WA0011.jpg", "IMG-20250326-WA0005.jpg"
+                ],
+                "celebrity-photo": [
+                    "IMG-20250326-WA0004.jpg", "IMG-20250326-WA0006.jpg", "IMG-20250326-WA0007.jpg",
+                    "IMG-20250326-WA0008.jpg", "IMG-20250326-WA0010.jpg", "IMG-20250330-WA0009.jpg",
+                    "IMG-20250330-WA0010.jpg", "IMG-20250330-WA0012.jpg"
+                ]
+            };
+
+            // Function to Load Gallery Images
+            function loadGallery(folder) {
+                if (!galleryContent) return;
+                galleryContent.innerHTML = ''; // Clear existing content
+
+                galleryImages[folder].forEach(imageName => {
+                    let img = document.createElement("img");
+                    img.src = `images/${folder}/${imageName}`;
+                    img.alt = "Gallery Image";
+                    img.classList.add("gallery-item");
+
+                    // Open Modal on Click
+                    img.addEventListener('click', function () {
+                        modal.style.display = 'block';
+                        modalImg.src = this.src;
+                    });
+
+                    galleryContent.appendChild(img);
+                });
+            }
+
+            // Close Modal
+            if (closeModal) {
+                closeModal.addEventListener('click', function () {
+                    modal.style.display = 'none';
+                });
+            }
+
+            // Add Event Listeners for Buttons
+            const celebrityButton = document.getElementById('celebrity-button');
+            const photoJournalismButton = document.getElementById('photo-journalism-button');
+
+            if (celebrityButton) {
+                celebrityButton.addEventListener('click', function () {
+                    loadGallery('celebrity-photo');
+                });
+            }
+
+            if (photoJournalismButton) {
+                photoJournalismButton.addEventListener('click', function () {
+                    loadGallery('photo-journalism');
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
