@@ -1,105 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Gallery - Raw Artisan</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Raw Artizan</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
+
     <nav>
-      <ul>
-        <li><a href="index.html">Raw Artisan</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </nav>
-  </header>
-  
-  <main>
-    <h1>Gallery</h1>
 
-    <!-- General Images Section -->
-    <section>
-      <h2>General Photography</h2>
-      <div id="general-gallery" class="gallery-grid"></div>
-    </section>
+    <main>
+        <h1>Gallery</h1>
+        <div class="gallery-buttons">
+            <button onclick="loadGallery('celebrity-photo')">Celebrity Photo</button>
+            <button onclick="loadGallery('photo-journalism')">Photo Journalism</button>
+        </div>
 
-    <!-- Celebrity Portrait Section -->
-    <section>
-      <h2>Celebrity Portrait</h2>
-      <div id="celebrity-gallery" class="gallery-grid"></div>
-    </section>
-
-    <!-- Photo Journalism Section -->
-    <section>
-      <h2>Photo Journalism</h2>
-      <div id="journalism-gallery" class="gallery-grid"></div>
-    </section>
+        <div id="gallery-content" class="gallery-grid"></div>
+    </main>
 
     <!-- Modal for Enlarged Images -->
     <div id="modal" class="modal">
-      <span id="close" class="close">&times;</span>
-      <img id="modal-img" class="modal-content" alt="Enlarged Photo">
+        <span id="close" class="close">&times;</span>
+        <img id="modal-img" class="modal-content">
     </div>
 
-  </main>
+    <footer>
+        <p>&copy; 2025 Raw Artizan. All rights reserved.</p>
+    </footer>
 
-  <footer>
-    <p>&copy; 2025 Raw Artisan. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Modal Functionality
-      const modal = document.getElementById('modal');
-      const modalImg = document.getElementById('modal-img');
-      const closeModal = document.getElementById('close');
-
-      // Function to load gallery images dynamically
-      function loadGalleryImages(folder, galleryId) {
-        fetch(`images/${folder}/`)
-          .then(response => response.text())
-          .then(data => {
-            let parser = new DOMParser();
-            let doc = parser.parseFromString(data, "text/html");
-            let imageLinks = doc.querySelectorAll("a");
-
-            const galleryGrid = document.getElementById(galleryId);
-
-            imageLinks.forEach(link => {
-              let imageName = link.getAttribute("href");
-              if (imageName.match(/\.(jpg|jpeg|png|gif)$/)) {
-                let img = document.createElement("img");
-                img.src = `images/${folder}/${imageName}`;
-                img.alt = `${folder} - ${imageName}`;
-                img.classList.add("gallery-item");
-
-                galleryGrid.appendChild(img);
-
-                // Add event listener for modal
-                img.addEventListener('click', function () {
-                  modal.style.display = 'block';
-                  modalImg.src = this.src;
-                  modalImg.alt = this.alt;
-                });
-              }
-            });
-          })
-          .catch(error => console.error("Error loading images:", error));
-      }
-
-      // Load images for each section
-      loadGalleryImages('general', 'general-gallery');
-      loadGalleryImages('celebrity-portrait', 'celebrity-gallery');
-      loadGalleryImages('photo%20journalism', 'journalism-gallery');
-
-      // Close modal when clicking the close button
-      closeModal.addEventListener('click', function () {
-        modal.style.display = 'none';
-      });
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
