@@ -79,4 +79,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Load Home Page Images if on Home Page
     loadHomeImages();
+
+    // Add Event Listeners for Buttons
+    const celebrityButton = document.getElementById('celebrity-button');
+    const photoJournalismButton = document.getElementById('photo-journalism-button');
+
+    if (celebrityButton) {
+        celebrityButton.addEventListener('click', function () {
+            loadGallery('celebrity-photo');
+        });
+    }
+
+    if (photoJournalismButton) {
+        photoJournalismButton.addEventListener('click', function () {
+            loadGallery('photo-journalism');
+        });
+    }
 });
